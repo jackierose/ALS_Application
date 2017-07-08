@@ -21,7 +21,6 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
 
     CameraDetector detector;
     SurfaceView cameraPreview;
-    TextView textview;
 
     boolean movedFromView = false;
 
@@ -36,18 +35,16 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
 
     private void intializeUI() {
 
-        textview = (TextView)findViewById(R.id.help);
         cameraPreview = (SurfaceView)findViewById(R.id.cameraview);
         detector = new CameraDetector(this, CameraDetector.CameraType.CAMERA_FRONT, cameraPreview);
         detector.setImageListener(this);
         detector.setDetectSmile(true);
         detector.setDetectEyeClosure(true);
-        detector.setDetectJawDrop(true);
+        detector.setDetectMouthOpen(true);
         detector.setDetectBrowRaise(true);
-        detector.setDetectChinRaise(true);
+        detector.setDetectSmirk(true);
         detector.setMaxProcessRate(10);
 
-        textview.setTranslationX(0);
     }
 
 
@@ -69,13 +66,15 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
     protected void onResume() {
         super.onResume();
         movedFromView = false;
+        if (!detector.isRunning()) {
+            detector.start();
+        }
     }
 
     @Override
     public void onImageResults(List<Face> faces, Frame frame, float v) {
         String result = "";
         if (faces.size() == 0) {
-            textview.setText("No Face!" + movedFromView);
         } else {
             Face face = faces.get(0);
             if (face.expressions.getSmile() > 60) {
@@ -95,14 +94,6 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
                 }
 
             }
-            result = String.format("S: %.2f, ic = %.2f, jd = %.2f, br = %.2f, cn = %.2f",
-                    face.expressions.getSmile(),
-                    face.expressions.getEyeClosure(),
-                    face.expressions.getJawDrop(),
-                    face.expressions.getBrowRaise(),
-                    face.expressions.getChinRaise());
-
-            textview.setText(result);
         }
 
     }

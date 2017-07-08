@@ -1,5 +1,6 @@
 package paaj.als_application;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import java.util.List;
 public class BuildStoryActivity extends AppCompatActivity implements Detector.ImageListener {
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    String storyTitle = "bibbity bobbety boo she said";
 
     int x,y,z = 0;
     public char[][] layer = {{'a', 'b', 'c','a', 'b', 'c','a', 'b', 'c','a'},
@@ -69,7 +71,7 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
         detector.setDetectEyeClosure(true);
         detector.setDetectMouthOpen(true);
         detector.setDetectBrowRaise(true);
-        detector.setDetectLipPress(true);
+        detector.setDetectSmirk(true);
         detector.setMaxProcessRate(10);
         help = (TextView)findViewById(R.id.help);
         help2 = (TextView)findViewById(R.id.help2);
@@ -91,9 +93,19 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
         //imageListnerController = true;
     }
 
+    public void libraryMove(View view) {
+        TextView txtView = (TextView) findViewById(R.id.help2);
+        storyTitle = txtView.getText().toString();
+        storyTitle = storyTitle.substring(0,20);
+        storyTitle = storyTitle.concat("...");
+
+        Intent intent = new Intent(this, ReadStories.class);
+        intent.putExtra(EXTRA_MESSAGE, storyTitle);
+        startActivity(intent);
+    }
 
 
-int count = 0;
+    int count = 0;
 
     @Override
     public void onImageResults(List<Face> faces, Frame frame, float v) {
@@ -130,6 +142,8 @@ int count = 0;
                     //  imageListnerController = false;
                     moveLeft();
          //           imageListnerController = false;
+                } else if (face.expressions.getMouthOpen() > 90) {
+                    libraryMove(null);
                 }
 
            }
@@ -152,7 +166,7 @@ int count = 0;
         if (z < 0) {
             z = words.length - 1;
         }
-x
+
         help.setText(words[z]);
         help2.setText(result);
     }
