@@ -6,13 +6,39 @@
     android:layout_height="match_parent"
     tools:context="paaj.als_application.MainPage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <!--Above is there code ^^^-->
+
+
+    <Button
+        android:id="@+id/mainCircleOne"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="@drawable/tan_circle"
+        android:contentDescription="@string/main_circle_one"
+        android:onClick="moveToWrite"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainCircleTwo" />
+
+
+    <Button
+        android:id="@+id/mainCircleTwo"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="@drawable/powder_circle"
+        android:contentDescription="@string/main_circle_two"
+        android:onClick="moveToRead"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/mainCircleOne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!--android:src="@drawable/powder_circle"-->
 
 </android.support.constraint.ConstraintLayout>
+
+
+
+

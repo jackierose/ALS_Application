@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ALS_Application</string>
+    <string name="main_circle_one">tanImage</string>
+    <string name="main_circle_two">powerImage</string>
 </resources>
