@@ -96,8 +96,13 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
     public void libraryMove(View view) {
         TextView txtView = (TextView) findViewById(R.id.help2);
         storyTitle = txtView.getText().toString();
-        storyTitle = storyTitle.substring(0,20);
-        storyTitle = storyTitle.concat("...");
+
+        if(storyTitle.length() <= 20) {
+            storyTitle = storyTitle.concat("...");
+        } else {
+            storyTitle = storyTitle.substring(0, 20);
+            storyTitle = storyTitle.concat("...");
+        }
 
         Intent intent = new Intent(this, ReadStories.class);
         intent.putExtra(EXTRA_MESSAGE, storyTitle);

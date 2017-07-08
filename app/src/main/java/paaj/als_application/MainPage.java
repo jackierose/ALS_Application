@@ -21,6 +21,7 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
 
     CameraDetector detector;
     SurfaceView cameraPreview;
+    TextView textview;
 
     boolean movedFromView = false;
 
@@ -29,6 +30,7 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        textview = (TextView)findViewById(R.id.textView);
         intializeUI();
         detector.start();
     }
@@ -66,9 +68,9 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
     protected void onResume() {
         super.onResume();
         movedFromView = false;
-        if (!detector.isRunning()) {
-            detector.start();
-        }
+        //if (!detector.isRunning()) {
+          //  detector.start();
+        //}
     }
 
     @Override
@@ -94,7 +96,10 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
                 }
 
             }
+
         }
+
+//        textview.setText(String.format("S: %.2f, MO: %.2f, br: %.2f", detector.getDetectSmile(), detector.getDetectMouthOpen(), detector.getDetectBrowRaise()));
 
     }
 }
