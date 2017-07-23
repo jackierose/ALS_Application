@@ -28,6 +28,8 @@
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ReadStories"
             android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".ReadAStory"
+            android:windowSoftInputMode="stateHidden"></activity>
     </application>
 
 </manifest>

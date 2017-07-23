@@ -7,6 +7,18 @@
     tools:context="paaj.als_application.ReadStories">
 
 
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="134dp"
+        android:layout_height="188dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -41,7 +53,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Her name was Jenny, and she thought...."
+        android:text="There is an idea to help educate younger..."
         app:layout_constraintRight_toLeftOf="@+id/button6"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/specialEditText"
@@ -49,6 +61,7 @@
 
     <Button
         android:id="@+id/button6"
+        android:background="@color/lightGray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
@@ -63,7 +76,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Have a great day! Here is a funny story about...."
+        android:text="When we go to Mars I think..."
         app:layout_constraintBottom_toTopOf="@+id/editText5"
         app:layout_constraintTop_toBottomOf="@+id/editText3"
         app:layout_constraintRight_toLeftOf="@+id/button5"
@@ -71,6 +84,7 @@
 
     <Button
         android:id="@+id/button5"
+        android:background="@color/lightGray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
@@ -85,7 +99,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="I saw a man and his cute puppy walk down the..."
+        android:text="I was inspired the other day by..."
         app:layout_constraintBottom_toTopOf="@+id/editText4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -94,6 +108,7 @@
 
     <Button
         android:id="@+id/button4"
+        android:background="@color/lightGray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
@@ -105,6 +120,7 @@
 
     <Button
         android:id="@+id/button"
+        android:background="@color/lightGray"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"

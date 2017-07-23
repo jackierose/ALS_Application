@@ -3,6 +3,8 @@ package paaj.als_application;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Selection;
+import android.text.Spannable;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
@@ -24,16 +26,14 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
     String storyTitle = "bibbity bobbety boo she said";
 
     int x,y,z = 0;
-    public char[][] layer = {{'a', 'b', 'c','a', 'b', 'c','a', 'b', 'c','a'},
-                            {'d', 'e', 'f', 'g', 'h','d', 'e', 'f', 'g', 'h'},
-                            {'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p','i', 'j'} ,
-                            {'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}};
-    public char[] layer1 = {'a', 'b', 'c'};
-    public char[] layer2 = {'d', 'e', 'f', 'g', 'h'};
-    public char[] layer3 = {'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'};
-    public char[] layer4 = {'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-    String[] words = {"my", "as", "the", "is", "foo", "name", "bar"};
+    public String[][] layer = {
+            {"my", "name", "is","foo", "bar", "f","g", "h"},
+            {"i", "j", "k", "l", "m","n", "o", "p"},
+            {"q", "r", "s", "t", "u", "v", "w", "x"} ,
+            {"y", "z", "1", "2", "3", "4", "5", "6"}};
+
+    //String[] words = {"my", "as", "the", "is", "foo", "name", "bar"};
 
     public int state = 0;
     boolean direction = false;
@@ -43,7 +43,7 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
     SurfaceView cameraPreview;
 
     TextView help;
-    TextView help2;
+    EditText help2;
 
     String curr_char = "";
     String resultArray = "";
@@ -72,26 +72,29 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
         detector.setDetectMouthOpen(true);
         detector.setDetectBrowRaise(true);
         detector.setDetectSmirk(true);
+        detector.setDetectLipPress(true);
         detector.setMaxProcessRate(10);
         help = (TextView)findViewById(R.id.help);
-        help2 = (TextView)findViewById(R.id.help2);
+        help2 = (EditText) findViewById(R.id.help2);
     }
+
 
     protected void sendText(View view) {
-       // resultArray += curr_char;
+        // resultArray += curr_char;
         Log.d("mytag", "RES ==== " + resultArray + "\n");
-        x = 0;
-        y = 0;
+        //x = 0;
+        //y = 0;
 
         if (result.length() == 0) {
-            result += words[z];
+            result += layer[x][y];
         } else {
-            result += " " + words[z];
+            result += " " + layer[x][y];
         }
+
         help2.setText(result);
-        z = 0;
-        //imageListnerController = true;
+        help2.setSelection(result.length());
     }
+
 
     public void libraryMove(View view) {
         TextView txtView = (TextView) findViewById(R.id.help2);
@@ -115,65 +118,70 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
     @Override
     public void onImageResults(List<Face> faces, Frame frame, float v) {
 
-        help.setText(words[z]);
-        help2.setText(result);
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        help.setText(layer[x][y]);
+        //help2.setText(result);
         if (faces.size() == 0) {
 
         } else {
             count++;
             Log.d("mytag", "Ps55555ttt ==== \n");
-           if (count % 3 == 0) {
-               Log.d("mytag", "Psttt ==== \n");
+            if (count % 3 == 0) {
+                Log.d("mytag", "Psttt ==== \n");
                 Face face = faces.get(0);
 
                 if (face.expressions.getBrowRaise() > 80) {
-                   // imageListnerController = false;
                     Log.d("mytag", "brow\n");
                     moveRight();
-
-            //        imageListnerController = false;
                 } else if (face.expressions.getSmile() > 80) {
-                   // imageListnerController = false;
+                    Log.d("mytag", "smile\n");
                     sendText(null);
-                    state = 0;
-          //          imageListnerController = false;
                 } else if (face.expressions.getEyeClosure() > 80) {
                     Log.d("mytag", "eye\n");
-                    //  imageListnerController = false;
-                    moveLeft();
-         //           imageListnerController = false;
+                    moveVertical();
                 } else if (face.expressions.getMouthOpen() > 90) {
+                    Log.d("mytag", "mouth\n");
+                    moveLeft();
+                } else if (face.expressions.getLipPress() > 80) {
+                    Log.d("mytag", "lippres\n");
+                    detector.stop();
                     libraryMove(null);
                 }
 
-           }
+            }
 
         }
     }
 
     public void moveRight() {
-        z++;
-        if (z >= words.length) {
-            z = 0;
+        y++;
+        if (y >= layer[0].length) {
+            y = 0;
         }
 
-        help.setText(words[z]);
-        help2.setText(result);
+        help.setText(layer[x][y]);
+        //help2.setText(result);
     }
 
     public void moveLeft() {
-        z--;
-        if (z < 0) {
-            z = words.length - 1;
+        y--;
+        if (y < 0) {
+            y = layer[0].length - 1;
         }
 
-        help.setText(words[z]);
-        help2.setText(result);
+        help.setText(layer[x][y]);
+        //help2.setText(result);
+    }
+
+    public void moveVertical()
+    {
+        x++;
+        if (x >= layer.length)
+        {
+            x = 0;
+        }
+
+        help.setText(layer[x][y]);
+        //help2.setText(result);
     }
 
 }

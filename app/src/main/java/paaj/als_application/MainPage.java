@@ -45,8 +45,8 @@ public class MainPage extends AppCompatActivity implements Detector.ImageListene
         detector.setDetectMouthOpen(true);
         detector.setDetectBrowRaise(true);
         detector.setDetectSmirk(true);
+        detector.setDetectLipPress(true);
         detector.setMaxProcessRate(10);
-
     }
 
 
