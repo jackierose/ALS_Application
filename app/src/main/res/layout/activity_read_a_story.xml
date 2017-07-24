@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="YOU'RE FUTURE STORY HERE!!!"
-        android:layout_weight="0.58" />
-</LinearLayout>
+    <EditText
+        android:id="@+id/textView6"
+        android:layout_width="524dp"
+        android:layout_height="806dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="43dp"
+        android:text="Russian researchers in the late 1940s kept five people awake for fifteen days using an experimental gas based stimulant. They were kept in a sealed environment to carefully monitor their oxygen intake so the gas didn’t kill them, since it was toxic in high concentrations. This was before closed circuit cameras so they had only microphones and 5 inch thick glass porthole sized windows into the chamber to monitor them. The chamber was stocked with books, cots to sleep on but no bedding, running water and toilet, and enough dried food to last all five for over a month.
+The test subjects were political prisoners deemed enemies of the state during World War II.
+Everything was fine for the first five days; the subjects hardly complained having been promised (falsely) that they would be freed if they submitted to the test and did not sleep for 30 days. Their conversations and activities were monitored and it was noted that they continued to talk about increasingly traumatic incidents in their past, and the general tone of their conversations took on a darker aspect after the 4 day mark.
+After five days they started to complain about the circumstances and events that lead them to where they were and started to demonstrate severe paranoia. They stopped talking to each other and began alternately whispering to the microphones and one way mirrored portholes. Oddly they all seemed to think they could win the trust of the experimenters by turning over their comrades, the other subjects in captivity with them. At first the researchers suspected this was an effect of the gas itself…
+After nine days the first of them started screaming. He ran the length of the chamber repeatedly yelling at the top of his lungs for 3 hours straight, he continued attempting to scream but was only able to produce occasional squeaks. The researchers postulated that he had physically torn his vocal cords. The most surprising thing about this behavior is how the other captives reacted to it… or rather didn’t react to it. They continued whispering to the microphones until the second of the captives started to scream. The 2 non-screaming captives took the books apart, smeared page after page with their own feces and pasted them calmly over the glass portholes. The screaming promptly stopped."
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        android:inputType="textMultiLine"
+        android:background="@null"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
