@@ -43,7 +43,7 @@ public class ReadStories extends AppCompatActivity implements Detector.ImageList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_stories);
         context = getApplicationContext();
-        currentButton = (Button)findViewById(R.id.button);
+        currentButton = (Button)findViewById(R.id.button4);
         buttonArray = new Button[]{(Button)findViewById(R.id.button),(Button)findViewById(R.id.button2),
                 (Button)findViewById(R.id.button4),(Button)findViewById(R.id.button5),(Button)findViewById(R.id.button6)};
 

@@ -28,10 +28,10 @@ public class BuildStoryActivity extends AppCompatActivity implements Detector.Im
     int x,y,z = 0;
 
     public String[][] layer = {
-            {"my", "name", "is","foo", "bar", "f","g", "h"},
-            {"i", "j", "k", "l", "m","n", "o", "p"},
-            {"q", "r", "s", "t", "u", "v", "w", "x"} ,
-            {"y", "z", "1", "2", "3", "4", "5", "6"}};
+            {"Ways", "Five", "M","To", "CS", "Teach","Me", "D"},
+            {"P", "Y", "R", "X", "F","W", "B", "C"},
+            {"T", "S", "G", "Q", "V", "S", "L", "H"} ,
+            {"E", "I", "J", "K", "O", "N", "U", "A"}};
 
     //String[] words = {"my", "as", "the", "is", "foo", "name", "bar"};
 
