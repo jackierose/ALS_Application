@@ -8,8 +8,10 @@ import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,24 +33,11 @@ import java.util.List;
 
 public class ReadAStory extends AppCompatActivity {
 
-    EditText textview;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_a_story);
 
-        textview = (EditText)findViewById(R.id.textView6);
-
-//        int count = 0;
-//        while(count < 100){
-//            count++;
-//        }
-//
-//        final int scrollAmount = textview.getLayout().getLineTop(textview.getLineCount()) - textview.getHeight();
-//        // if there is no need to scroll, scrollAmount will be <=0
-//        if (scrollAmount > 0)
-//            textview.scrollTo(0, scrollAmount);
     }
 
 

@@ -53,6 +53,8 @@ public class ReadStories extends AppCompatActivity implements Detector.ImageList
         EditText editText = (EditText)findViewById(R.id.specialEditText);
         editText.setText(title, TextView.BufferType.EDITABLE);
 
+        int darkColor = ContextCompat.getColor(context,R.color.darkGray);
+        currentButton.setBackgroundColor(darkColor);
 
         intializeUI();
         detector.start();

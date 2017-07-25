@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context="paaj.als_application.ReadStories">
 
 
     <SurfaceView
         android:id="@+id/surfaceView"
-        android:layout_width="134dp"
-        android:layout_height="188dp"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="28dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -23,15 +24,17 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:text="Community Library"
+        android:textColor="#2574AD"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <EditText
         android:id="@+id/specialEditText"
@@ -45,7 +48,8 @@
         app:layout_constraintRight_toLeftOf="@+id/button"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1" />
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintVertical_bias="0.502" />
 
     <EditText
         android:id="@+id/editText5"
@@ -53,7 +57,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="There is an idea to help educate younger..."
+        android:text="The more ideas we have, the more..."
         app:layout_constraintRight_toLeftOf="@+id/button6"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/specialEditText"
@@ -65,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
+        android:textColor="#000000"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/editText5"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -88,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
+        android:textColor="#000000"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/editText4"
         app:layout_constraintBottom_toTopOf="@+id/button6"
@@ -98,13 +104,14 @@
         android:layout_width="500dp"
         android:layout_height="50dp"
         android:ems="10"
+        android:fontFamily="sans-serif"
         android:inputType="textPersonName"
         android:text="I was inspired the other day by..."
         app:layout_constraintBottom_toTopOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.503"
-        app:layout_constraintRight_toLeftOf="@+id/button4" />
+        app:layout_constraintRight_toLeftOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.503" />
 
     <Button
         android:id="@+id/button4"
@@ -112,11 +119,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
+        android:textColor="#000000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/editText3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="0.173" />
 
     <Button
         android:id="@+id/button"
@@ -124,11 +132,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="READ"
+        android:textColor="#000000"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/specialEditText"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="@+id/specialEditText"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginBottom="-13dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
